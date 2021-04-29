@@ -11,23 +11,42 @@ const mondayWork = function(activity="go to the office") {
 mondayWork("work from home");
 
 
-// function wrapAdjective (something="*") {
-//   return function (anything="special") {
-//     if (something === "*") {
-//       return anything = "*a hard worker*!"
-//     } else if (something = "||") {
-//       return anything = "||a dedicated programmer||!";
-//     }
-//     return `you are ${anything}`;
-//   }
-// }
-//  wrapAdjective("*")(`You are ${anything}`);
-//  wrapAdjective("||")(`You are ${anything}`);
-
  function wrapAdjective (something="*") {
-   const innerfunc = function(anything="") {
-     return `You are ${something}${anything}${something}!`;
+   const result = function(msg="") {
+     return `You are ${something}${msg}${something}!`;
    }
+   return result;
  }
- wrapAdjective("||")("a dedicated programmer");
- wrapAdjective("*")("a hard worker");
+ wrapAdjective("*")();
+
+
+ const Calculator = {
+  add : function add(a,b){
+     return a + b;
+   },
+  subtract: function subtract(a,b) {
+     return a - b;
+   },
+   multiply: function multiply(a,b) {
+     return a * b;
+   },
+   divide: function divide(a,b) {
+     return a / b;
+   },
+ };
+
+add(1,3);
+subtract(1,3);
+multiply(1,3);
+divide(10,5);
+
+
+
+function actionApplyer(a, arrayOfTransforms) {
+  for (let i = 0; i < arrayOfTransforms.length; i++) {
+    a = arrayOfTransforms[i](a);
+  }
+  return a;
+}
+
+actionApplyer(13, arrayOfTransforms);
