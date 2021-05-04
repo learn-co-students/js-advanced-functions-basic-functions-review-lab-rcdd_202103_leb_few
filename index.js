@@ -17,13 +17,17 @@ function wrapAdjective(param1="*") {
 }
 wrapAdjective()("a hard worker");
 wrapAdjective("||")("a dedicated programmer");
-
-let Calculator = new Object();
-
 /*
+const Calculator = {
   add: (function(a, b){return a + b}),
   subtract: (function(a, b){return a - b}),
   multiply: (function(a, b){return a * b}),
   divide: (function(a, b){return a / b})
-
+};
 */
+
+const Calculator = new Object();
+Calculator.add = function(a, b) {
+  return a + b;
+};
+Calculator.add(1 + 3);
