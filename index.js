@@ -1,33 +1,45 @@
 // Your code here
-function saturdayFun(activity="roller-skate") {
-  return `This Saturday, I want to ${activity}!`;
+function saturdayFun(act = "roller-skate"){
+  return `This Saturday, I want to ${act}!`
 }
-saturdayFun();
-
-const mondayWork = function(string="go to the office") {
-  return `This Monday, I will ${string}.`;
+saturdayFun()
+saturdayFun(act="bathe my dog")
+function mondayWork(work="go to the office"){
+  return `This Monday, I will ${work}.`;
 }
-modayWork();
+mondayWork()
+mondayWork(work="work from home")
+function wrapAdjective(p2="*"){
+  const innerFunction = function (p1 = "special"){
+    return `You are ${p2}${p1}${p2}!`
+  }
+  return innerFunction;
+}
+wrapAdjective("||")("a dedicated programmer");
 
-
-function wrapAdjective(param1="*") {
-  return function(param2="special") {
-    return `You are ${param1}${param2}${param1}!`
+const Calculator = {
+  add: function(a,b) {
+    return a + b;
+  },
+  subtract: function(a,b) {
+    return a - b
+  },
+  multiply: function(a,b) {
+    return a * b
+  },
+  divide: function(a,b) {
+    return a / b;
   }
 }
-wrapAdjective()("a hard worker");
-wrapAdjective("||")("a dedicated programmer");
-/*
-const Calculator = {
-  add: (function(a, b){return a + b}),
-  subtract: (function(a, b){return a - b}),
-  multiply: (function(a, b){return a * b}),
-  divide: (function(a, b){return a / b})
-};
-*/
-
-const Calculator = new Object();
-Calculator.add = function(a, b) {
-  return a + b;
-};
-Calculator.add(1 + 3);
+function actionApplyer(num,arrayOfTransforms){
+  let cur=num;
+  for (let i=0; i<arrayOfTransforms.length; i++){
+      cur = arrayOfTransforms[i](cur);
+  }
+  return cur;
+}
+actionApplyer(13, arrayOfTransforms = [
+          function(a){ return a * 2 },
+          function(a){ return a + 1000},
+          function(a){ return a % 7 }
+        ])
